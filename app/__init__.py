@@ -23,7 +23,7 @@ def home():
     return render_template('index.html')
 
 #-----------------------------------------------#
-# Note: Note sure if it is a good practice      #
+# Note: Not sure if it is a good practice       #
 # This lets us have custom paths for css and js #
 #-----------------------------------------------#
 @myapp.route('/css/<filename>')
