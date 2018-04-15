@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WebSocket Test App</title>
+        <link type="text/css" rel="stylesheet" href="/css/style.css" />
+        <script src="/js/websocket_client.js"></script>
+    </head>
+    <body onload="javascript:WebSocketSupport()">
+        <div id="ws_support"></div>
+
+        <div id="wrapper">
+            <div id="menu">
+                <h3 class="welcome">WebSocket based admin terminal</h3>
+            </div>
+
+            <div id ="controls">
+                <input name="msg" type="text" id="msg" size="63"
+placeholder="Type bash command here. Example: ls -lrt" />
+                <input name="sendmsg" type="submit"  id="sendmsg" value="Remote 
+command" onclick="doSend(document.getElementById('msg').value)" />
+            </div>
+            <div id="chatbox"></div>
+        </div>
+    </body>
+</html>
