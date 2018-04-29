@@ -28,4 +28,4 @@ Optional: Create virtualenv
 screenshot.
 
 #### Quick glimpse
-![Websocket + Flask + Gevent](/img/web-view.png)
+![Websocket + Flask + Gevent](/static/img/web-view.png)
