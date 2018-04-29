@@ -1,8 +1,7 @@
+var websocket;
 var output;
 
-var websocket;
-
-function WebSocketSupport()
+function WebSocketSupport(message, response)
 {
     if (browserSupportsWebSockets() === false) {
         document.getElementById("ws_support").innerHTML = "<h2>Sorry! Your web browser does not supports web sockets</h2>";
@@ -13,12 +12,13 @@ function WebSocketSupport()
         return;
     }
 
-    output = document.getElementById("chatbox");
+    output = document.getElementById(response);
 
     websocket = new WebSocket('ws:' +  window.location.hostname + ':' + window.location.port  + '/websocket');
 
     websocket.onopen = function(e) {
         writeToScreen("You have have successfully connected to the server");
+        doSend(message, output);
     };
 
 
@@ -39,20 +39,9 @@ function onError(e) {
     writeToScreen('<span style="color: red;">ERROR:</span> ' + e.data);
 }
 
-function doSend(message) {
-    //var validationMsg = userInputSupplied();
-    //if (validationMsg !== '') {
-    //    alert(validationMsg);
-    //    return;
-    //}
-    //var chatname = document.getElementById('chatname').value;
-
-    document.getElementById('msg').value = "";
-
-    document.getElementById('msg').focus();
-
-    //var msg = '@<b>' + chatname + '</b>: ' + message;
-
+function doSend(message, output) {
+    output.value = "";
+    output.focus();
     websocket.send(message);
     writeToScreen(message);
 }
